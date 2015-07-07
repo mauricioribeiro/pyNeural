@@ -1,2 +1,2 @@
 # pyNeural
-Aritificial Neural Network classes (Python)
+Aritificial Neural Network classes (Python 2.7)
