@@ -10,14 +10,34 @@
 </ul>
 <h5>setInputs(inputArray)</h5>
 <ul>
-<li><b>inputArray [float List]</b> is an array of inputs values (ps: the array must be same size of Neuron.weights).</li>
+<li><b>inputArray [float List]</b> is an array of inputs values (ps: the array must be same length of Neuron.weights).</li>
 <li>This function is a void function which sets the Neuron inputs.</li>
 </ul>
-<h5>setWeight(index,value):</h5>
+<h5>setWeight(index,value)</h5>
 <ul>
 <li><b>index [int]</b> is the weight position desired to change. PS: Beginning by 1.</li>
 <li><b>value [float]</b> is a new value of weight specified by index.</li>
 <li>This function is a void function which sets the a specified weight.</li>
+</ul>
+<h5>getInput(index)</h5>
+<ul>
+<li><b>index [int]</b> is the input position desired to get. PS: Beginning by 1.</li>
+<li>This function returns the specified input value [float].</li>
+</ul>
+<h5>getWeight(index)</h5>
+<ul>
+<li><b>index [int]</b> is the weight position desired to get. PS: Beginning by 1.</li>
+<li>This function returns the specified weight value [float].</li>
+</ul>
+<h5>rangeWeights()</h5>
+<ul>
+<li>This function returns the count of weights [List]. It can be used in the Python <i>for</i>.</li>
+</ul>
+<h5>train(inputMatrix,desiredArray)</h5>
+<ul>
+<li><b>inputMatrix [List of float List]</b> is the input matrix values for training. Each array [float List] of this matrix represent the Neuron inputs. Rows represent the amount of samples and columns represent the inputs.</li>
+<li><b>desiredArray [float List]</b> is the desired outputs of inputMatrix. Note that if the inputMatrix is 5x3 (samples x inputs), desiredArray must be a array [float List] of length 5.</li>
+<li>This function returns True or False, depending if the Neuron training converged [Boolean].</li>
 </ul>
 <br>
 ##Getting Started
