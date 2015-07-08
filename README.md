@@ -10,7 +10,7 @@
 </ul>
 <h5>setInputs(inputArray)</h5>
 <ul>
-<li><b>inputArray [float List]</b> is an array of inputs values (ps: the array must be same length of Neuron.weights).</li>
+<li><b>inputArray [float List]</b> is an array of inputs values (ps: the array must be same length as Neuron.weights length).</li>
 <li>This function is a void function which sets the Neuron inputs.</li>
 </ul>
 <h5>setWeight(index,value)</h5>
