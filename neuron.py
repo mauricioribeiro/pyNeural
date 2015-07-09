@@ -29,10 +29,7 @@ class Neuron(object):
 		self.alpha = value
 
 	def setMaxInteractions(self,highValue):
-		self.maxInteractions = highValue
-
-	def getTranferFunctions(self):
-		return ['step','sigmoid']
+		self.maxInteractions = highValue if highValue > 0 else 1000
 
 	def getWeight(self,index):
 		return self.weights[index-1]
@@ -45,6 +42,12 @@ class Neuron(object):
 
 	def getLearningRate(self):
 		return self.alpha
+
+	def getTranferFunctions(self):
+		return ['step','linear']
+
+	def getTransferFunction(self):
+		return self.function if self.function in self.getTransferFunctions() else 'Invalid Function'
 
 	def getMaxInteractions(self):
 		return self.maxInteractions
@@ -65,13 +68,16 @@ class Neuron(object):
 		return range(1,len(self.weights)+1)
 
 	def transferFunction(self,u):
-		if self.function=='step':
+		if self.function == 'step':
 			return 1 if u > self.getThreshold() else 0
+		if self.function == 'linear':
+			return u
 
 	def checkAll(self):
-		if self.function not in self.getTranferFunctions():
+		if self.getTransferFunction() not in self.getTranferFunctions():
 			print 'NEURON SAYS: Invalid Transfer Function. Options available: '+str(self.getTranferFunctions())
 			return False
+		if self.getMaxInteractions():
 		return True
 
 	def train(self,inputMatrix,desiredArray):
