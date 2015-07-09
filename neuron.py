@@ -43,7 +43,7 @@ class Neuron(object):
 	def getLearningRate(self):
 		return self.alpha
 
-	def getTranferFunctions(self):
+	def getTransferFunctions(self):
 		return ['step','linear']
 
 	def getTransferFunction(self):
@@ -74,10 +74,12 @@ class Neuron(object):
 			return u
 
 	def checkAll(self):
-		if self.getTransferFunction() not in self.getTranferFunctions():
-			print 'NEURON SAYS: Invalid Transfer Function. Options available: '+str(self.getTranferFunctions())
+		if self.getTransferFunction() not in self.getTransferFunctions():
+			print 'NEURON SAYS: Invalid Transfer Function. Options available: '+str(self.getTransferFunctions())
 			return False
-		if self.getMaxInteractions():
+		if self.getMaxInteractions() < 0:
+			print 'NEURON SAYS: The Max Interactions must be greater than zero'
+			return False
 		return True
 
 	def train(self,inputMatrix,desiredArray):

@@ -7,7 +7,7 @@
 <p>This class is used for create a Artificial Neuron. It takes just two parameters:</p>
 <ul>
 	<li><b>nWeights [int]</b> the amount of weights (and respectively the inputs) of the neuron.</li>
-	<li><b>transferFunction [string]</b> the transfer function used by the neuron. PS: you can check out all the transfer functions available calling the <i>getTranferFunctions()</i>.</li>
+	<li><b>transferFunction [string]</b> the transfer function used by the neuron. PS: you can check out all the transfer functions available calling the <i>getTransferFunctions()</i>.</li>
 </ul>
 <h5>setInputs(inputArray)</h5>
 <ul>
@@ -53,11 +53,11 @@
 <ul>
 	<li>It returns the value of maximum interactions [int] used in the training.</li>
 </ul>
-<h5>getTranferFunction()</h5>
+<h5>getTransferFunction()</h5>
 <ul>
 	<li>It returns the Neuron Transfer Function [string]. It also can return the string "<i>Invalid Function</i>".</li>
 </ul>
-<h5>getTranferFunctions()</h5>
+<h5>getTransferFunctions()</h5>
 <ul>
 	<li>It returns a array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b> and <b>linear</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron" target="_blank">Read more about Transfer Functions here</a>.</li>
 </ul>
