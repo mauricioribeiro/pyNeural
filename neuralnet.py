@@ -2,7 +2,7 @@ from neuron import Neuron
 
 # Simple Neural Network class
 # https://github.com/mauricioribeiro/pyNeural
-class Net(Neuron):
+class NeuralNet(Neuron):
 
 	def __init__(self):
 		self.layers = {}
