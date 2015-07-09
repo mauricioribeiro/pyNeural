@@ -73,4 +73,8 @@
 </ul>
 <br>
 ##Getting Started
-<p>There is a test file with a basic example about how an unique neuron works.</p>
+<p>There are test files with a basic examples about how these classes work.</p>
+<ul>
+	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuron.py" target="_blank">test-neuron.py</a> How create, setup and train a unique Neuron. It uses the class <b>Neuron</b>.</li>
+	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuralnet.py" target="_blank">test-neuralnet.py (beta)</a> How create layers, add neurons and setup a whole Neural Network. It uses the classes <b>Neuron</b> and <b>NeuralNet (beta)</b>.</li>
+</ul>
