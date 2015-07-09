@@ -71,6 +71,8 @@
 	<li><b>desiredArray [float List]</b> is the desired outputs of inputMatrix. Note that if the inputMatrix is 5x3 (samples x inputs), desiredArray must be a array [float List] of length 5.</li>
 	<li>It returns True or False, depending if the Neuron training converged [Boolean].</li>
 </ul>
+<h4>Neural Net Class</h4>
+<p>This class is used for create a whole Neural Network. It isn't totally written yet.</p>
 <br>
 ##Getting Started
 <p>There are test files with a basic examples about how these classes work.</p>

@@ -15,4 +15,4 @@ myNet.addNeuron('firstLayer',neuronC)
 
 print 'Amount of Layers:',myNet.countLayers()
 print 'Amount of Neurons:',myNet.countNeurons()
-print 'Amount of Neurons in "firstLayer"',myNet.countNeurons('firstLayer')
+print 'Amount of Neurons in "firstLayer":',myNet.countNeurons('firstLayer')
