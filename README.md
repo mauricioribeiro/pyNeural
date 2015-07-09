@@ -59,7 +59,7 @@
 </ul>
 <h5>getTranferFunctions()</h5>
 <ul>
-	<li>It returns a array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b> and <b>linear</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron">Read more about Transfer Functions here</a>.</li>
+	<li>It returns a array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b> and <b>linear</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron" target="_blank">Read more about Transfer Functions here</a>.</li>
 </ul>
 <h5>rangeWeights()</h5>
 <ul>
