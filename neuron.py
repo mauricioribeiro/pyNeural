@@ -4,13 +4,14 @@ import random
 # https://github.com/mauricioribeiro/pyNeural
 class Neuron(object):
 
-	def __init__(self,nWeights):
+	def __init__(self,nWeights,transferFunction):
 		self.weights = [round(random.uniform(0,1),3) for w in range(nWeights)]
 		self.inputs = [0]*nWeights
 		self.threshold = 0.5
 		self.alpha = 0.1
 		self.trainingInteractions = 0
 		self.maxInteractions = 1000
+		self.function = transferFunction
 
 	def setInputs(self,inputArray):
 		self.inputs = inputArray
@@ -29,6 +30,9 @@ class Neuron(object):
 
 	def setMaxInteractions(self,highValue):
 		self.maxInteractions = highValue
+
+	def getTranferFunctions(self):
+		return ['step','sigmoid']
 
 	def getWeight(self,index):
 		return self.weights[index-1]
@@ -61,25 +65,34 @@ class Neuron(object):
 		return range(1,len(self.weights)+1)
 
 	def transferFunction(self,u):
-		return 1 if u > self.getThreshold() else 0
+		if self.function=='step':
+			return 1 if u > self.getThreshold() else 0
+
+	def checkAll(self):
+		if self.function not in self.getTranferFunctions():
+			print 'NEURON SAYS: Invalid Transfer Function. Options available: '+str(self.getTranferFunctions())
+			return False
+		return True
 
 	def train(self,inputMatrix,desiredArray):
-		while True:
-		    errorCount,p = 0,0
-		    for arrayInputs in inputMatrix:
-		    	self.setInputs(arrayInputs)
-		    	u = self.getSum()
-		    	error = desiredArray[p]-self.transferFunction(u)
-		    	if error != 0:
-		    		errorCount += 1
-		    		for x in self.rangeWeights():
-		    			newWeight = self.getWeight(x)+self.getLearningRate()*error*self.getInput(x)
-		    			self.setWeight(x,newWeight)
-		    	p += 1
-		    self.addTrainingInteraction()
-		    if errorCount == 0: return True
-		    if self.getTrainingInteractions() > self.getMaxInteractions(): return False
+		if self.checkAll():
+			while True:
+			    errorCount,p = 0,0
+			    for arrayInputs in inputMatrix:
+			    	self.setInputs(arrayInputs)
+			    	u = self.getSum()
+			    	error = desiredArray[p]-self.transferFunction(u)
+			    	if error != 0:
+			    		errorCount += 1
+			    		for x in self.rangeWeights():
+			    			newWeight = self.getWeight(x)+self.getLearningRate()*error*self.getInput(x)
+			    			self.setWeight(x,newWeight)
+			    	p += 1
+			    self.addTrainingInteraction()
+			    if errorCount == 0: return True
+			    if self.getTrainingInteractions() > self.getMaxInteractions(): return False
 
 	def think(self):
-		u = self.getSum()
-		return self.transferFunction(u)
+		if self.checkAll():
+			u = self.getSum()
+			return self.transferFunction(u)

@@ -1,6 +1,6 @@
 from neuron import Neuron
 
-myNeuron = Neuron(3)
+myNeuron = Neuron(3,'step')
 myNeuron.setWeights([0,0,0])
 myNeuron.setMaxInteractions(100)
 
