@@ -7,7 +7,7 @@
 <p>This class is used for create a Artificial Neuron. It takes just two parameters:</p>
 <ul>
 	<li><b>nWeights [int]</b> the amount of weights (and respectively the inputs) of the neuron.</li>
-	<li><b>transferFunction [string]</b> the transfer function used by the neuron. PS: you can check out all the transfer functions available calling the <i>getTransferFunctions()</i>.</li>
+	<li><b>transferFunction [string]</b> the transfer function used by the neuron. PS: you can check out all the transfer functions available calling <i>getTransferFunctions()</i>.</li>
 </ul>
 <h5>setInputs(inputArray)</h5>
 <ul>

@@ -7,6 +7,20 @@ class NeuralNet(Neuron):
 	def __init__(self):
 		self.layers = {}
 
+	def getLayerIds(self):
+		r = []
+		for l in self.layers:
+			r.append(l)
+		return r
+
+	def getNeuron(self,idLayer,index):
+		if self.checkLayer(idLayer):
+			if index > 0 and index <= self.countNeurons(idLayer):
+				return self.layers[idLayer]['neurons'][index-1]
+			else:
+				print 'NEURON NET SAYS: index must be a integer value between 1 and %d' %(self.countNeurons(idLayer))
+		return False
+
 	def addLayer(self,idLayer,neuronsArray,parentLayerId = None):
 		self.layers[idLayer] = {
 		'neurons': neuronsArray,
