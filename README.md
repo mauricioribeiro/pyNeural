@@ -1,6 +1,6 @@
 # pyNeural
 <h3>Aritificial Neural Network classes (Python 2.7)</h3>
-<p>pyNeural is a simple set of classes for generate ANNs (<i>Artificial Neural Networks</i>) easily. It isn't done yet. Any suggestion? Ask for be a contributor.</p>
+<p>pyNeural is a simple set of classes for generate ANNs (<i>Artificial Neural Networks</i>) easily. It isn't done yet. Any suggestion? Ask to be a contributor.</p>
 <br>
 ##Main Functions
 <h4>Neuron Class</h4>
