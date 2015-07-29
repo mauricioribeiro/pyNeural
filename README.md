@@ -1,5 +1,5 @@
 # pyNeural
-![pyNeural](https://github.com/mauricioribeiro/pyNeural/pyneural.png "pyNeural")
+![pyNeural](https://github.com/mauricioribeiro/pyNeural/blob/master/pyneural.png "pyNeural")
 <h3>Aritificial Neural Network classes (Python 2.7)</h3>
 <p>pyNeural is a simple set of classes for generate ANNs (<i>Artificial Neural Networks</i>) easily. It isn't done yet. Any suggestion? Ask to be a contributor.</p>
 <br>
