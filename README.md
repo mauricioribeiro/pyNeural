@@ -1,18 +1,18 @@
 # pyNeural
 ![pyNeural](https://github.com/mauricioribeiro/pyNeural/pyneural.png "pyNeural")
 <h3>Aritificial Neural Network classes (Python 2.7)</h3>
-<p>pyNeural is a simple set of classes for generate ANNs (<i>Artificial Neural Networks</i>) easily. It isn't done yet. Any suggestion? Ask for be a contributor.</p>
+<p>pyNeural is a simple set of classes for generate ANNs (<i>Artificial Neural Networks</i>) easily. It isn't done yet. Any suggestion? Ask to be a contributor.</p>
 <br>
 ##Main Functions
 <h4>Neuron Class</h4>
-<p>This class is used for create a Artificial Neuron. It takes just two parameters:</p>
+<p>This class is used for create an Artificial Neuron. It takes just two parameters:</p>
 <ul>
 	<li><b>nWeights [int]</b> the amount of weights (and respectively the inputs) of the neuron.</li>
-	<li><b>transferFunction [string]</b> the transfer function used by the neuron. PS: you can check out all the transfer functions available calling <i>getTransferFunctions()</i>.</li>
+	<li><b>transferFunction [string]</b> the transfer function used by the neuron. PS: you can check out all the transfer functions available calling <i>getTransferFunctions()</i> function.</li>
 </ul>
 <h5>setInputs(inputArray)</h5>
 <ul>
-	<li><b>inputArray [float List]</b> is an array of inputs values (ps: the array must be same length as Neuron.weights length).</li>
+	<li><b>inputArray [float List]</b> is an array of the inputs values (ps: the array must be same length as Neuron.weights length).</li>
 	<li>It's a void function which sets the Neuron inputs.</li>
 </ul>
 <h5>setWeight(index,value)</h5>
@@ -56,11 +56,11 @@
 </ul>
 <h5>getTransferFunction()</h5>
 <ul>
-	<li>It returns the Neuron Transfer Function [string]. It also can return the string "<i>Invalid Function</i>".</li>
+	<li>It returns the Neuron Transfer Function [string]. It also can return "<i>Invalid Function</i>" string.</li>
 </ul>
 <h5>getTransferFunctions()</h5>
 <ul>
-	<li>It returns a array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b> and <b>linear</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
+	<li>It returns an array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b> and <b>linear</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
 </ul>
 <h5>rangeWeights()</h5>
 <ul>
@@ -68,15 +68,15 @@
 </ul>
 <h5>train(inputMatrix,desiredArray)</h5>
 <ul>
-	<li><b>inputMatrix [List of float List]</b> is the input matrix values for training. Each array [float List] of this matrix represent the Neuron inputs. Rows represent the amount of samples and columns represent the inputs.</li>
-	<li><b>desiredArray [float List]</b> is the desired outputs of inputMatrix. Note that if the inputMatrix is 5x3 (samples x inputs), desiredArray must be a array [float List] of length 5.</li>
+	<li><b>inputMatrix [List of float List]</b> is the input matrix values for training. Each array [float List] from this matrix represents the Neuron inputs. Rows represent the amount of samples and columns represent the inputs.</li>
+	<li><b>desiredArray [float List]</b> is the desired outputs of inputMatrix. Note that if the inputMatrix is 5x3 (samples x inputs), desiredArray must be an array [float List] of length 5.</li>
 	<li>It returns True or False, depending if the Neuron training converged [Boolean].</li>
 </ul>
 <h4>Neural Net Class</h4>
 <p>This class is used for create a whole Neural Network. It isn't totally written yet.</p>
 <br>
 ##Getting Started
-<p>There are test files with a basic examples about how these classes work.</p>
+<p>There are test files with basic examples about how these classes work.</p>
 <ul>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuron.py" target="_blank">test-neuron.py</a> How create, setup and train a unique Neuron. It uses the class <b>Neuron</b>.</li>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuralnet.py" target="_blank">test-neuralnet.py (beta)</a> How create layers, add neurons and setup a whole Neural Network. It uses the classes <b>Neuron</b> and <b>NeuralNet (beta)</b>.</li>
