@@ -4,7 +4,7 @@
 <br>
 ##Main Functions
 <h4>Neuron Class</h4>
-<p>This class is used for create a Artificial Neuron. It takes just two parameters:</p>
+<p>This class is used for create an Artificial Neuron. It takes just two parameters:</p>
 <ul>
 	<li><b>nWeights [int]</b> the amount of weights (and respectively the inputs) of the neuron.</li>
 	<li><b>transferFunction [string]</b> the transfer function used by the neuron. PS: you can check out all the transfer functions available calling <i>getTransferFunctions()</i>.</li>
@@ -75,7 +75,7 @@
 <p>This class is used for create a whole Neural Network. It isn't totally written yet.</p>
 <br>
 ##Getting Started
-<p>There are test files with a basic examples about how these classes work.</p>
+<p>There are test files with basic examples about how these classes work.</p>
 <ul>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuron.py" target="_blank">test-neuron.py</a> How create, setup and train a unique Neuron. It uses the class <b>Neuron</b>.</li>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuralnet.py" target="_blank">test-neuralnet.py (beta)</a> How create layers, add neurons and setup a whole Neural Network. It uses the classes <b>Neuron</b> and <b>NeuralNet (beta)</b>.</li>
