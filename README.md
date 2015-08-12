@@ -1,7 +1,7 @@
 # pyNeural
 ![pyNeural](https://github.com/mauricioribeiro/pyNeural/blob/master/pyneural.png "pyNeural")
 <h3>Aritificial Neural Network classes (Python 2.7)</h3>
-<p>pyNeural is a simple set of classes for generate ANNs (<i>Artificial Neural Networks</i>) easily. It isn't done yet. Any suggestion? Ask to be a contributor.</p>
+<p>pyNeural is a simple set of classes for generating ANNs (<i>Artificial Neural Networks</i>) easily. It isn't done yet. If you have any suggestions, feel free  to become a contributor.</p>
 <br>
 ##Main Functions
 <h4>Neuron Class</h4>
@@ -38,12 +38,12 @@
 </ul>
 <h5>getInput(index)</h5>
 <ul>
-	<li><b>index [int]</b> is the input position desired to get. PS: Beginning by 1.</li>
+	<li><b>index [int]</b> is the input position desired to get. PS: Starting at 1.</li>
 	<li>It returns the specified input value [float].</li>
 </ul>
 <h5>getWeight(index)</h5>
 <ul>
-	<li><b>index [int]</b> is the weight position desired to get. PS: Beginning by 1.</li>
+	<li><b>index [int]</b> is the weight position desired to get. PS: Starting at 1.</li>
 	<li>It returns the specified weight value [float].</li>
 </ul>
 <h5>getLearningRate()</h5>
@@ -60,7 +60,7 @@
 </ul>
 <h5>getTransferFunctions()</h5>
 <ul>
-	<li>It returns an array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b> and <b>linear</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
+	<li>It returns an array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b>,<b>linear</b> and <b>sigmoid</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
 </ul>
 <h5>rangeWeights()</h5>
 <ul>
@@ -78,6 +78,6 @@
 ##Getting Started
 <p>There are test files with basic examples about how these classes work.</p>
 <ul>
-	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuron.py" target="_blank">test-neuron.py</a> How create, setup and train a unique Neuron. It uses the class <b>Neuron</b>.</li>
+	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuron.py" target="_blank">test-neuron.py</a> How create, setup and train an unique Neuron. It uses the class <b>Neuron</b>.</li>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuralnet.py" target="_blank">test-neuralnet.py (beta)</a> How create layers, add neurons and setup a whole Neural Network. It uses the classes <b>Neuron</b> and <b>NeuralNet (beta)</b>.</li>
 </ul>

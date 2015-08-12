@@ -1,4 +1,4 @@
-import random
+import random,math
 
 # Simple Neuron Class
 # https://github.com/mauricioribeiro/pyNeural
@@ -72,6 +72,8 @@ class Neuron(object):
 			return 1 if u > self.getThreshold() else 0
 		if self.function == 'linear':
 			return u
+		if self.function == 'sigmoid':
+			return 1/(1+math.exp(-u))
 
 	def checkAll(self):
 		if self.getTransferFunction() not in self.getTransferFunctions():
