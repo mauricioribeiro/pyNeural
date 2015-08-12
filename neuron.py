@@ -44,7 +44,7 @@ class Neuron(object):
 		return self.alpha
 
 	def getTransferFunctions(self):
-		return ['step','linear']
+		return ['step','linear','sigmoid']
 
 	def getTransferFunction(self):
 		return self.function if self.function in self.getTransferFunctions() else 'Invalid Function'
