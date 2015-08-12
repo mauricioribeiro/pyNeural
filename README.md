@@ -24,7 +24,7 @@
 <h5>setWeights(weightsArray)</h5>
 <ul>
 	<li><b>weightsArray [float List]</b> is an array of weight values.</li>
-	<li>It's a void function which sets the Neuron weights. Just to remember, the class Neuron receives as parameter the amount of weights (nWeights). After you initialize the class, you can set its weights or use the random weights generated.</li>
+	<li>It's a void function which sets the Neuron weights. Just a reminder, the class Neuron receives as parameter the amount of weights (nWeights). After you initialize the class, you can set its weights or use the random generated weights.</li>
 </ul>
 <h5>setLearningRate(value)</h5>
 <ul>
@@ -60,7 +60,7 @@
 </ul>
 <h5>getTransferFunctions()</h5>
 <ul>
-	<li>It returns an array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b>,<b>linear</b> and <b>sigmoid</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
+	<li>It returns an array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b>, <b>linear</b> and <b>sigmoid</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
 </ul>
 <h5>rangeWeights()</h5>
 <ul>
@@ -76,7 +76,7 @@
 <p>This class is used for create a whole Neural Network. It isn't totally written yet.</p>
 <br>
 ##Getting Started
-<p>There are test files with basic examples about how these classes work.</p>
+<p>These are test files with basic examples about how these classes work:</p>
 <ul>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuron.py" target="_blank">test-neuron.py</a> How create, setup and train an unique Neuron. It uses the class <b>Neuron</b>.</li>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuralnet.py" target="_blank">test-neuralnet.py (beta)</a> How create layers, add neurons and setup a whole Neural Network. It uses the classes <b>Neuron</b> and <b>NeuralNet (beta)</b>.</li>
