@@ -76,7 +76,7 @@
 <p>This class is used for create a whole Neural Network. It isn't totally written yet.</p>
 <br>
 ##Getting Started
-<p>These are test files with basic examples about how these classes work:</p>
+<p>These are test files with basic examples about how the classes work:</p>
 <ul>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuron.py" target="_blank">test-neuron.py</a> How create, setup and train an unique Neuron. It uses the class <b>Neuron</b>.</li>
 	<li><a href="https://github.com/mauricioribeiro/pyNeural/blob/master/test-neuralnet.py" target="_blank">test-neuralnet.py (beta)</a> How create layers, add neurons and setup a whole Neural Network. It uses the classes <b>Neuron</b> and <b>NeuralNet (beta)</b>.</li>
