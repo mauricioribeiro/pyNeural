@@ -60,7 +60,7 @@
 </ul>
 <h5>getTransferFunctions()</h5>
 <ul>
-	<li>It returns an array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b>, <b>linear</b> and <b>sigmoid</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
+	<li>It returns an array [string List] with the keys of the transfer functions available. Until the last commit, they are: <b>step</b>, <b>sign</b>, <b>linear</b> and <b>sigmoid</b>. <a href="https://en.wikipedia.org/wiki/Artificial_neuron#Types_of_transfer_functions" target="_blank">Read more about Transfer Functions here</a>.</li>
 </ul>
 <h5>rangeWeights()</h5>
 <ul>

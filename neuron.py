@@ -34,6 +34,9 @@ class Neuron(object):
 	def getWeight(self,index):
 		return self.weights[index-1]
 
+	def getWeights(self):
+		return self.weights
+
 	def getInput(self,index):
 		return self.inputs[index-1]
 
@@ -70,6 +73,11 @@ class Neuron(object):
 	def transferFunction(self,u):
 		if self.function == 'step':
 			return 1 if u > self.getThreshold() else 0
+		if self.function == 'sign':
+			r = 0
+			if u > self.getThreshold() r = 1
+			if u < -self.getThreshold() r = -1
+			return r
 		if self.function == 'linear':
 			return u
 		if self.function == 'sigmoid':
