@@ -75,8 +75,8 @@ class Neuron(object):
 			return 1 if u > self.getThreshold() else 0
 		if self.function == 'sign':
 			r = 0
-			if u > self.getThreshold() r = 1
-			if u < -self.getThreshold() r = -1
+			if u > self.getThreshold(): r = 1
+			if u < -self.getThreshold(): r = -1
 			return r
 		if self.function == 'linear':
 			return u
