@@ -29,7 +29,7 @@ class NeuralNet(Neuron):
 
 	def addNeuron(self,idLayer,neuron):
 		if type(neuron) is not Neuron:
-			print 'NEURON NET SAYS: The neuron must be a instance of Neuron'
+			print 'NEURON NET SAYS: The neuron must be an instance of Neuron'
 			return False
 		if self.checkLayer(idLayer):
 			self.layers[idLayer]['neurons'].append(neuron)
@@ -55,5 +55,15 @@ class NeuralNet(Neuron):
 				r += len(self.layers[l]['neurons'])
 			return r
 
+	def checkAllLayers(self):
+		for l in self.layers:
+			if self.self.layers[l]['parent']==None:
+				if not self.checkLayer(self.layers[l]['parent']):
+					return False
+			# continue...
+
 	def train(self):
 		print 'NEURAL NET SAYS: training..'
+
+	def think(self):
+		print 'NEURAL NET SAYS: thinking..'
