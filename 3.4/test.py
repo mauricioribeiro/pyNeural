@@ -20,7 +20,10 @@ if network.checkAllLayers():
 	network.setWeights('output_layer', 1, [0.2, 0.2, 0.3])
 
 	inputs = [0.1, 0.9]
-	network.setInputs('input_layer',inputs)
+	print(network.think(inputs))
 	print(network.getNeuron('input_layer',1).getSum(), network.getNeuron('input_layer',1).think()) # v1, y1 [video at 12:50s]
 	print(network.getNeuron('input_layer',2).getSum(), network.getNeuron('input_layer',2).think()) # v2, y2 [video at 14:00s]
-	print(network.think(inputs))
+
+	for neurons in network.rangeLayers():
+		for neuron in neurons:
+			print(neuron.getWeights(),neuron.getInputs())

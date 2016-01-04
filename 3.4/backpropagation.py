@@ -13,7 +13,10 @@ class BackPropagationNet(Neuron):
 		self.layers = {}
 		self.threshold = 0.5
 		self.alpha = 0.1
+		self.eta = 0
 		self.bias = False
+		self.trainingInteractions = 0
+		self.maxInteractions = 1000
 
 	def setInputs(self,idLayer,inputArray):
 		if self.bias is not False:
@@ -28,9 +31,15 @@ class BackPropagationNet(Neuron):
 
 	def setLearningRate(self,value):
 		self.alpha = value
+
+	def setErrorRate(self,value):
+		self.eta = value
 	
 	def setBias(self,value):
 		self.bias = value
+
+	def setMaxInteractions(self,value):
+		self.maxInteractions = value if value > 0 else 1000
 
 	def setWeights(self,idLayer,index,weightsArray):
 		if self.checkLayer(idLayer):
@@ -42,8 +51,14 @@ class BackPropagationNet(Neuron):
 	def getLearningRate(self):
 		return self.alpha
 
+	def getErrorRate(self):
+		return self.eta
+
 	def getBias(self):
 		return self.bias if self.bias is not False else 0
+
+	def getMaxInteractions(self):
+		return self.maxInteractions
 	
 	def getWeights(self,idLayer,index):
 		if self.checkLayer(idLayer):
@@ -90,6 +105,9 @@ class BackPropagationNet(Neuron):
 						break
 		return r
 
+	def addTrainingInteraction(self):
+		self.trainingInteractions += 1
+
 	def generateNeurons(self,amount,transferFunction,previousInputs):
 		return [Neuron(previousInputs,transferFunction) for i in range(amount)] if amount else []
 
@@ -129,6 +147,12 @@ class BackPropagationNet(Neuron):
 				r += len(layer['neurons'])
 			return r
 
+	def rangeLayers(self):
+		sequence,layers = self.getLayerSequence(), []
+		for l in sequence:
+			layers.append(self.layers[l]['neurons'])
+		return layers
+
 	def checkLayer(self,idLayer):
 		return True if idLayer in self.layers.keys() else False
 
@@ -138,8 +162,27 @@ class BackPropagationNet(Neuron):
 				return False
 		return True
 
-	def train(self):
-		print('training...')
+	def checkAll(self):
+		return True if self.checkAllLayers() and self.getMaxInteractions() > 0 else False
+
+	def train(self,inputMatrix,desiredArray):
+		if self.checkAll():
+			while True:
+				errorCount,p = 0,0
+				for arrayInputs in inputMatrix:
+					error = desiredArray[p]-self.think(arrayInputs)
+					if error > self.getErrorRate():
+						errorCount += 1
+
+
+						for x in self.rangeWeights():
+							newWeight = self.getWeight(x)+self.getLearningRate()*error*self.getInput(x)
+							self.setWeight(x,newWeight)
+
+					p += 1
+				self.addTrainingInteraction()
+				if errorCount == 0: return True
+				if self.getTrainingInteractions() > self.getMaxInteractions(): return False
 
 	def think(self,inputArray):
 		layers, nextInputs  = self.getLayerSequence(), inputArray
