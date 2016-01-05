@@ -4,17 +4,13 @@ import copy
 # pyNeural for Python 3.4 - Simple Backpropagation Network class
 # https://github.com/mauricioribeiro/pyNeural
 
-'''
-	UNIMPLEMENTED METHODS:
-	- train()
-'''
 class BackPropagationNet(Neuron):
 
 	def __init__(self):
 		self.layers = {}
 		self.threshold = 0.5
 		self.alpha = 0.1
-		self.eta = 0
+		self.eta = 0.25
 		self.bias = False
 		self.trainingInteractions = 0
 		self.maxInteractions = 1000
@@ -169,24 +165,35 @@ class BackPropagationNet(Neuron):
 	def checkAll(self):
 		return True if self.checkAllLayers() and self.getMaxInteractions() > 0 else False
 
+	def propagateError(self,initialUpdate):
+		rlayers = self.getLayerSequence()
+		rlayers.reverse()
+		currentUpdate = [initialUpdate]
+		for l in rlayers:
+			nextUpdate = []
+			for n in range(len(self.layers[l]['neurons'])):
+				self.layers[l]['neurons'][n].calculateGradientError(currentUpdate[n])
+				nextUpdate += self.layers[l]['neurons'][n].getGradientErrorByWeights()[1:] if self.bias is not False else self.layers[l]['neurons'][n].getGradientErrorByWeights()
+			currentUpdate = nextUpdate
+
+	def updateWeights(self):
+		for l in self.getLayerSequence():
+			for n in range(len(self.layers[l]['neurons'])):
+				for x in self.layers[l]['neurons'][n].rangeWeights():
+					newWeight = self.layers[l]['neurons'][n].getWeight(x)+self.getLearningRate()*self.layers[l]['neurons'][n].getWeight(x)+self.getErrorRate()*self.layers[l]['neurons'][n].getGradientError()*self.layers[l]['neurons'][n].getInput(x)
+					self.layers[l]['neurons'][n].setWeight(x,newWeight)
+
 	def train(self,inputMatrix,desiredArray):
 		if self.checkAll():
-			rlayers = self.getLayerSequence()
-			rlayers.reverse()
+			
 			while True:
 				errorCount,p = 0,0
 				for arrayInputs in inputMatrix:
 					error = desiredArray[p]-self.think(arrayInputs)
 					if error > self.getErrorRate():
 						errorCount += 1
-						currentUpdate = [error]
-						for l in rlayers:
-							nextUpdate = []
-							for n in range(len(self.layers[l]['neurons'])):
-								self.layers[l]['neurons'][n].calculateGradientError(currentUpdate[n])
-								nextUpdate += self.layers[l]['neurons'][n].getGradientErrorByWeights()[1:] if self.bias is not False else self.layers[l]['neurons'][n].getGradientErrorByWeights()
-								#print('update,delta',currentUpdate,self.layers[l]['neurons'][n].getGradientError())
-							currentUpdate = nextUpdate
+						self.propagateError(error)
+						self.updateWeights()
 					p += 1
 				self.addTrainingInteraction()
 				if errorCount == 0: return True
