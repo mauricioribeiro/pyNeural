@@ -10,6 +10,7 @@ class Neuron(object):
 		self.inputs = [0]*nWeights
 		self.threshold = 0.5
 		self.alpha = 0.1
+		self.delta = 0
 		self.function = transferFunction
 
 	def setInputs(self,inputArray):
@@ -45,6 +46,15 @@ class Neuron(object):
 	def getLearningRate(self):
 		return self.alpha
 
+	def getGradientError(self):
+		return self.delta
+
+	def getGradientErrorByWeights(self):
+		r = []
+		for w in self.getWeights():
+			r.append(w*self.getGradientError())
+		return r
+
 	def getTransferFunctions(self):
 		return ['step','linear','sigmoid']
 
@@ -57,11 +67,15 @@ class Neuron(object):
 			u += self.getInput(i)*self.getWeight(i)
 		return u
 
-	def getErrorGradient(self):
-		return 0
+	def calculateGradientError(self,update):
+		y = self.think()
+		self.delta = y*(1-y)*update
 
 	def countInputs(self):
 		return len(self.inputs)
+
+	def countWeights(self):
+		return len(self.weights)
 
 	def rangeWeights(self):
 		return range(1,len(self.weights)+1)

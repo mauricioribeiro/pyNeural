@@ -1,4 +1,5 @@
 from neuron import Neuron
+import copy
 
 # pyNeural for Python 3.4 - Simple Backpropagation Network class
 # https://github.com/mauricioribeiro/pyNeural
@@ -23,7 +24,7 @@ class BackPropagationNet(Neuron):
 			inputArray.insert(0, self.getBias())
 		if self.checkLayer(idLayer):
 			for n in range(len(self.layers[idLayer]['neurons'])):
-				if self.layers[idLayer]['neurons'][n].countInputs() == len(inputArray):
+				if self.layers[idLayer]['neurons'][n].countWeights() == len(inputArray):
 					self.layers[idLayer]['neurons'][n].setInputs(inputArray)
 	
 	def setThreshold(self,value):
@@ -56,6 +57,9 @@ class BackPropagationNet(Neuron):
 
 	def getBias(self):
 		return self.bias if self.bias is not False else 0
+
+	def getTrainingInteractions(self):
+		return self.trainingInteractions
 
 	def getMaxInteractions(self):
 		return self.maxInteractions
@@ -167,25 +171,29 @@ class BackPropagationNet(Neuron):
 
 	def train(self,inputMatrix,desiredArray):
 		if self.checkAll():
+			rlayers = self.getLayerSequence()
+			rlayers.reverse()
 			while True:
 				errorCount,p = 0,0
 				for arrayInputs in inputMatrix:
 					error = desiredArray[p]-self.think(arrayInputs)
 					if error > self.getErrorRate():
 						errorCount += 1
-
-
-						for x in self.rangeWeights():
-							newWeight = self.getWeight(x)+self.getLearningRate()*error*self.getInput(x)
-							self.setWeight(x,newWeight)
-
+						currentUpdate = [error]
+						for l in rlayers:
+							nextUpdate = []
+							for n in range(len(self.layers[l]['neurons'])):
+								self.layers[l]['neurons'][n].calculateGradientError(currentUpdate[n])
+								nextUpdate += self.layers[l]['neurons'][n].getGradientErrorByWeights()[1:] if self.bias is not False else self.layers[l]['neurons'][n].getGradientErrorByWeights()
+								#print('update,delta',currentUpdate,self.layers[l]['neurons'][n].getGradientError())
+							currentUpdate = nextUpdate
 					p += 1
 				self.addTrainingInteraction()
 				if errorCount == 0: return True
-				if self.getTrainingInteractions() > self.getMaxInteractions(): return False
+				if self.getTrainingInteractions() >= self.getMaxInteractions(): return False
 
 	def think(self,inputArray):
-		layers, nextInputs  = self.getLayerSequence(), inputArray
+		layers, nextInputs  = self.getLayerSequence(), copy.deepcopy(inputArray)
 		for l in layers:
 			self.setInputs(l,nextInputs)
 			nextInputs = []

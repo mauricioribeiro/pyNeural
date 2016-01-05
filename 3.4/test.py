@@ -24,6 +24,9 @@ if network.checkAllLayers():
 	print(network.getNeuron('input_layer',1).getSum(), network.getNeuron('input_layer',1).think()) # v1, y1 [video at 12:50s]
 	print(network.getNeuron('input_layer',2).getSum(), network.getNeuron('input_layer',2).think()) # v2, y2 [video at 14:00s]
 
+	inputMatrix, desiredArray = [inputs],[0.9]
+	network.setMaxInteractions(1)
+	network.train(inputMatrix, desiredArray)
 	for neurons in network.rangeLayers():
 		for neuron in neurons:
-			print(neuron.getWeights(),neuron.getInputs())
+			print('%.4f' %neuron.getGradientError())
