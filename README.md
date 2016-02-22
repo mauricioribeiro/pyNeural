@@ -8,4 +8,4 @@
 <p>pyNeural for Python 2.7 provides a Neuron class with the main Transfer Functions <b>step</b>, <b>sign</b>, <b>linear</b> and <b>sigmoid</b>, a brief documentation and an example file.</p>
 <br>
 <a href="https://github.com/mauricioribeiro/pyNeural/tree/master/3.4" target="_blank"><h4>pyNeural classes for Python 3.4</h4></a>
-<p>pyNeural for Python 3.4 also provides a Neuron class with the main Transfer Functions <b>step</b>, <b>sign</b>, <b>linear</b> and <b>sigmoid</b>. So, what's the new? This version contains the new network class: <i>Backpropagation Net</i>.</p>@
+<p>pyNeural for Python 3.4 also provides a Neuron class with the main Transfer Functions <b>step</b>, <b>sign</b>, <b>linear</b> and <b>sigmoid</b>. So, what's the new? This version contains the new network class: <i>Backpropagation Net</i>.</p>
